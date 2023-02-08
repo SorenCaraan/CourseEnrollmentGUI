@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class CourseInterface extends JFrame {
@@ -17,9 +18,25 @@ public class CourseInterface extends JFrame {
         coursePanel = new JPanel();
         createCoursePanel();
         setSize(frameWidth, frameHeight);
+        // listener = new CourseListener();
+        add(coursePanel, BorderLayout.CENTER);
     }
 
     public void createCoursePanel(){
+        //JPanel selectPanel = coursePanel();
+
+        JPanel coursingPanel = new JPanel();
+        coursingPanel.setLayout(new GridLayout(1,3));
+        //coursingPanel.add(selectPanel);
+        add(coursingPanel, BorderLayout.SOUTH);
+    }
+
+    /*
+    class CourseListener implements ActionListener {
+        addedCourse();
+    }
+    */
+    public void addedCourse(){
 
     }
 }
