@@ -37,6 +37,6 @@ public class CourseInterface extends JFrame {
     }
     */
     public void addedCourse(){
-
+        String courseName = (String) selectCoursePanel.getSelectedItem();
     }
 }
