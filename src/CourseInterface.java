@@ -11,10 +11,11 @@ public class CourseInterface extends JFrame {
     private JPanel coursePanel;
     private JComboBox selectCoursePanel;
     private ActionListener listener;
-    private JRadioButton sectionA, sectionB;
-    private JTextField courseField;
+    private JRadioButton sectionButtonA, sectionButtinB;
+    private JTextField courseFielding;
 
-    public CourseInterface (){
+    public CourseInterface ()
+    {
         coursePanel = new JPanel();
         createCoursePanel();
         setSize(frameWidth, frameHeight);
@@ -22,7 +23,8 @@ public class CourseInterface extends JFrame {
         add(coursePanel, BorderLayout.CENTER);
     }
 
-    public void createCoursePanel(){
+    public void createCoursePanel()
+    {
         //JPanel selectPanel = coursePanel();
 
         JPanel coursingPanel = new JPanel();
@@ -36,7 +38,32 @@ public class CourseInterface extends JFrame {
         addedCourse();
     }
     */
+
+    public JPanel comboCoursePanel()
+    {
+        selectCoursePanel = new JComboBox();
+
+        selectCoursePanel.addItem("ITEC1000");
+        selectCoursePanel.addItem("ITEC1010");
+        selectCoursePanel.addItem("ITEC1620");
+        selectCoursePanel.addItem("ITEC2610");
+
+        selectCoursePanel.addActionListener(listener);
+        JPanel panel = new JPanel();
+        panel.add(selectCoursePanel);
+        return panel;
+    }
+
+    public void createCourseField()
+    {
+        final int fieldWidth = 10;
+        courseFielding = new JTextField();
+        // courseFielding.setText("Courses You Selected:" + \n + selectCoursePanel.getNextFocusableComponent());
+
+    }
     public void addedCourse(){
         String courseName = (String) selectCoursePanel.getSelectedItem();
+
+        // if (sectionButtonA.isSelected()) {courseName + " A"}
     }
 }
