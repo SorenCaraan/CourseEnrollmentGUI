@@ -11,7 +11,7 @@ public class CourseInterface extends JFrame {
     private JPanel coursePanel;
     private JComboBox selectCoursePanel;
     private ActionListener listener;
-    private JRadioButton sectionButtonA, sectionButtinB;
+    private JRadioButton sectionButtonA, sectionButtonB;
     private JTextField courseFielding;
 
     public CourseInterface ()
@@ -51,6 +51,18 @@ public class CourseInterface extends JFrame {
         selectCoursePanel.addActionListener(listener);
         JPanel panel = new JPanel();
         panel.add(selectCoursePanel);
+        return panel;
+    }
+
+    public JPanel radioCoursePanel(){
+        sectionButtonA = new JRadioButton("Section A");
+        sectionButtonA.addActionListener(listener);
+        sectionButtonA.setSelected(true);
+
+        sectionButtonB = new JRadioButton("Section B");
+        sectionButtonB.addActionListener(listener);
+
+        JPanel panel = new JPanel();
         return panel;
     }
 
