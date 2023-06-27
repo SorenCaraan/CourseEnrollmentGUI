@@ -1,5 +1,8 @@
+import javax.swing.JFrame;
 public class CourseViewer {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        JFrame frame = new JFrame("Course Enrollment Interface");
+
+        frame.setVisible(true);
     }
 }
