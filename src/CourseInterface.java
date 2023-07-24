@@ -28,10 +28,12 @@ public class CourseInterface extends JFrame {
 
     public void createCoursePanel()
     {
+        JButton courseAdd = new JButton("Add Course");
 
         JPanel coursingPanel = new JPanel();
         coursingPanel.add(comboCoursePanel());
         coursingPanel.add(radioCoursePanel());
+        coursingPanel.add(courseAdd);
         add(coursingPanel);
     }
 
