@@ -2,6 +2,7 @@ import javax.swing.*;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class CourseInterface extends JFrame {
@@ -15,40 +16,43 @@ public class CourseInterface extends JFrame {
     private ActionListener listener;
     private JRadioButton sectionButtonA, sectionButtonB;
     private JTextField courseFielding;
+    private String course1000 = "ITEC1000", course1010 = "ITEC1010", course1620 = "ITEC1620", course2610 = "ITEC2610";
 
     public CourseInterface ()
     {
         coursePanel = new JPanel();
         createCoursePanel();
         setSize(frameWidth, frameHeight);
-        // listener = new CourseListener();
-        add(coursePanel, BorderLayout.CENTER);
+        listener = new CourseListener();
     }
 
     public void createCoursePanel()
     {
-        //JPanel selectPanel = coursePanel();
 
         JPanel coursingPanel = new JPanel();
-        coursingPanel.setLayout(new GridLayout(1,3));
-        //coursingPanel.add(selectPanel);
-        add(coursingPanel, BorderLayout.SOUTH);
+        coursingPanel.add(comboCoursePanel());
+        coursingPanel.add(radioCoursePanel());
+        add(coursingPanel);
     }
 
-    /*
+
     class CourseListener implements ActionListener {
-        addedCourse();
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            addedCourse();
+        }
     }
-    */
+
 
     public JPanel comboCoursePanel()
     {
         selectCoursePanel = new JComboBox();
 
-        selectCoursePanel.addItem("ITEC1000");
-        selectCoursePanel.addItem("ITEC1010");
-        selectCoursePanel.addItem("ITEC1620");
-        selectCoursePanel.addItem("ITEC2610");
+        selectCoursePanel.addItem(course1000);
+        selectCoursePanel.addItem(course1010);
+        selectCoursePanel.addItem(course1620);
+        selectCoursePanel.addItem(course2610);
 
         selectCoursePanel.addActionListener(listener);
         JPanel panel = new JPanel();
@@ -79,15 +83,15 @@ public class CourseInterface extends JFrame {
     {
         final int fieldWidth = 10;
         courseFielding = new JTextField();
-        // courseFielding.setText("Courses You Selected:" + \n + selectCoursePanel.getNextFocusableComponent());
+        courseFielding.setText("Courses You Selected:" + "\n" + selectCoursePanel.getNextFocusableComponent());
 
     }
     public void addedCourse(){
         String courseName = (String) selectCoursePanel.getSelectedItem();
 
-        /* if (sectionButtonA.isSelected()) {courseName + " A"}
-        else if (sectionButtonB.isSelected()) {courseName + " B"}
-        */
+        /*if (sectionButtonA.isSelected()) {courseName + " A"}
+        else if (sectionButtonB.isSelected()) {courseName + " B"}*/
+
 
         JPanel panel = new JPanel();
         String rcourse = selectCoursePanel.getName();
