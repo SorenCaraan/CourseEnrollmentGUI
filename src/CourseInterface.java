@@ -1,4 +1,6 @@
 import javax.swing.*;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
@@ -62,7 +64,14 @@ public class CourseInterface extends JFrame {
         sectionButtonB = new JRadioButton("Section B");
         sectionButtonB.addActionListener(listener);
 
+        ButtonGroup sectionGroup = new ButtonGroup();
+        sectionGroup.add(sectionButtonA);
+        sectionGroup.add(sectionButtonB);
+
         JPanel panel = new JPanel();
+        panel.add(sectionButtonA);
+        panel.add(sectionButtonB);
+        panel.setBorder(new TitledBorder(new EtchedBorder(),"Section"));
         return panel;
     }
 
@@ -76,6 +85,14 @@ public class CourseInterface extends JFrame {
     public void addedCourse(){
         String courseName = (String) selectCoursePanel.getSelectedItem();
 
-        // if (sectionButtonA.isSelected()) {courseName + " A"}
+        /* if (sectionButtonA.isSelected()) {courseName + " A"}
+        else if (sectionButtonB.isSelected()) {courseName + " B"}
+        */
+
+        JPanel panel = new JPanel();
+        String rcourse = selectCoursePanel.getName();
+        JScrollPane scrollPane = new JScrollPane();
+        panel.add(scrollPane);
+        add(panel);
     }
 }
